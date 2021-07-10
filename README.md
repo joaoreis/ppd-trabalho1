@@ -1,20 +1,30 @@
 # Trabalho T1.1 - Paralelismo de Processos e Threads
 
----
+###### João Ubaldo, Renan Evangelista e Úrsula Abreu
 
-João Ubaldo, Renan Evangelista e Úrsula Abreu
+### Hardware utilizado na avaliação
+
+- Processador: Ryzen 9 5900X
+- Sistema Operacional: Windows 10
 
 ## Executando o trabalho
+
+### Requerimentos
+
+- python3
+- numpy (utilizado para gerar elementos do vetor e cálculo do desvio padrão)
 
 Para execução do projeto, basta executar os comandos: 
 
 ```python
-python main.py {numProcessos}
+python main_merge.py {numProcessos}
 ```
 
-Onde ``numProcessos`` é o número de processos, caso não seja definido, o projeto considera a exceução com 1 processo. O output da execução ficará salvo em um arquivo .txt na pasta raíz.
+Onde ``numProcessos`` é o número de processos, caso não seja definido, o projeto considera a execução com 1 processo. Após 10 execuções gera um output que ficará salvo em um arquivo .txt na pasta raíz. Os resultados das execuções descritas nos resultados se encontram nas pastas de *results*.
 
 ## Resultados
+
+Consideramos o vetor de 500.000 elementos, pois a execução de vetores maiores tornava a simulação inviável, o tempo de execução está em segundos:
 
 ||1 processo|2 processos|4 processos|8 processos|
 |---|---|---|---|---|
@@ -33,4 +43,20 @@ Onde ``numProcessos`` é o número de processos, caso não seja definido, o proj
 
 O gráfico das médias:
 
-![](/media/chart.png)
+![](/media/chart1.png)
+
+## Discussões
+
+O gráfico das médias dos tempos execução do *mergesort* apresentou um comportamento inesperado, não comprovando o ganho de se usar paralelismo. Para validar nossa implementação resolvemos implementar a busca de um elemento em um vetor onde esse elemento nunca é encontrado para simular o pior caso da busca e garantir que sempre percorrerá o vetor inteiro.
+
+Para execução dessa busca, basta executar os comandos: 
+
+```python
+python main_search.py {numProcessos}
+```
+
+Obtivemos os seguintes resultados, considerando um vetor de 5.000.000 de elementos, o tempo de execução está em segundos:
+
+![](/media/chart2.png)
+
+Concluímos que apesar da implementação do *mergesort* não apresentar os resultados esperados, a implementação do paralelismo está correta e apresenta um ganho nítido, indicada pelo gráfico de tempo de execução do *search*.

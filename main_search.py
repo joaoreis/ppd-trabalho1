@@ -25,7 +25,7 @@ def main():
     times = []
 
     # Esse elemento nunca sera encontrado pois os vetores sao gerados com elementos positivos
-    # para simular o pior caso da busca e garanti que sempre tera que percorrer o vetor inteiro
+    # para simular o pior caso da busca e garantir que sempre tera que percorrer o vetor inteiro
     element_to_search = -1
 
     # O elemento e procurado 10 vezes no mesmo vetor. O tempo de busca e contado dentro
