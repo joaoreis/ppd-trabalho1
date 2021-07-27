@@ -16,7 +16,7 @@ class Server(SimpleXMLRPCServer):
 
 
 def main():
-    myServer = Server(("localhost", 8000))
+    myServer = Server(("localhost", 8000), allow_none=True)
     print("Listening on port 8000")
     myServer.register_function(myServer.put, "put")
     myServer.register_function(myServer.get, "get")

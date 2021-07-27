@@ -45,10 +45,10 @@ def main():
     size = 8
     process_count = get_total_processes()
     
-    server = ServerProxy("http://localhost:8080/")
+    server = ServerProxy("http://localhost:8000/")
     
     parallel_generate_retrieve(process_count, size, server)
-    #server.print()
+    server.print()
 
 
 if __name__ == "__main__":
