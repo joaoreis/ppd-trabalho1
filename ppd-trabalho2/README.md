@@ -20,7 +20,7 @@ Onde ``numProcessos`` é o número de processos, caso não seja definido, o proj
 
 ## Resultados
 
-Consideramos uma tabela hash de inteiros com tamanho 1000000, o tempo requerido para inserção e recuperação dos valores na tabela hash com 2, 4 e 8 instâncias cliente é:
+Considerando uma tabela hash de inteiros com tamanho 1000000, o tempo requerido para inserção e recuperação dos valores na tabela hash com 2, 4 e 8 instâncias cliente, em segundos, é:
 
 |Processos|Tempo|
 |---|---|
