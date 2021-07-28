@@ -1,0 +1,4 @@
+Usando 2 processos
+Iniciando processo 0
+Iniciando processo 1
+Time Elapsed: 746.500257
