@@ -3,12 +3,12 @@ from xmlrpc.server import SimpleXMLRPCServer
 
 class Server(SimpleXMLRPCServer):
 
-    hashtable = {} #Manager().dict()
+    hashtable = {}
 
     def get(self, key):
         return self.hashtable[key]
 
-    def put(self, key:str, value:int):
+    def put(self, key, value):
         self.hashtable[key] = value
 
     def print(self):
