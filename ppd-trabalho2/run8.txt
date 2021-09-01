@@ -1,0 +1,10 @@
+Usando 8 processos
+Iniciando processo 0
+Iniciando processo 1
+Iniciando processo 2
+Iniciando processo 3
+Iniciando processo 4
+Iniciando processo 5
+Iniciando processo 6
+Iniciando processo 7
+Time Elapsed: 546.565700

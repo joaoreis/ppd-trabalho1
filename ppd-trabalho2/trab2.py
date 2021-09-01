@@ -4,6 +4,7 @@ from multiprocessing import Pool, Process
 import sys
 from server import Server
 from client import Client
+from time import time
 from xmlrpc.client import ServerProxy
 
 ###############################################################################
@@ -22,7 +23,7 @@ def execute(process_count, id, size, server):
     client = Client(server, id, quantity)
     client.generate()
     client.retrieve()
-    print(client.timeElapsed)
+    
 
 ###############################################################################
 def parallel_generate_retrieve(process_count, size, server: Server):
@@ -31,25 +32,23 @@ def parallel_generate_retrieve(process_count, size, server: Server):
 
     for i in range(process_count):
         p = Process(target=execute, args=(process_count, i, size, server))
-        print("Starting for process %d" %i)
+        print("Iniciando processo %d" %i)
         p.start()
         procs.append(p)
 
     for p in procs:
         p.join()
 
-
 ###############################################################################
 def main():
-    #size = 1_000_000
-    size = 8
+    size = 1_000_000
     process_count = get_total_processes()
     
     server = ServerProxy("http://localhost:8000/")
     
+    start = time()
     parallel_generate_retrieve(process_count, size, server)
-    server.print()
-
+    print("Time Elapsed: %4.6f" % (time() - start))
 
 if __name__ == "__main__":
     main()
